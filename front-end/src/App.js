@@ -8,18 +8,29 @@ import FeaturedJoke from './FeaturedJoke';
 
 const App = () => {
     const [playLists, setPlayLists] = useState([]);
+    const [showFeatJoke, setShowFeatJoke] = useState(false);
+
+    const handleShowFeature = (event) => {
+        event.preventDefault();
+        showFeatJoke ? setShowFeatJoke(false) : setShowFeatJoke(true);
+    };
 
     return (
         <div className='app'>
             <h1>Joke App</h1>
             <div>
-                <button>Show Featured</button>
+                <button onClick={ (event) => handleShowFeature(event) }>Show Featured</button>
             </div>
-            <FeaturedJoke></FeaturedJoke>
+            <FeaturedJoke
+                showFeatJoke = { showFeatJoke }
+            ></FeaturedJoke>
+
             <RandomJokes></RandomJokes>
+
             <CreatePlaylist
                 setPlayLists = { setPlayLists }                
             ></CreatePlaylist>
+
             <Playlists
                 playLists = { playLists }
             ></Playlists>

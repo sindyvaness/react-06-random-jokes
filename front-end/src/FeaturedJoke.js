@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-const FeaturedJoke= () => {
+const FeaturedJoke= (props) => {
+    useEffect(() => {
+        if(props.showFeatJoke) {
+            document.getElementById('featured-joke').style.display = 'block';
+        }
+        else {
+            document.getElementById('featured-joke').style.display = 'none';
+        }
+    }, [props.showFeatJoke]);
+
     return (
-        <div className='featured-joke joke'>
+        <div id='featured-joke' className='featured-joke joke'>
             <h2>Featured Joke</h2>
             <div>
                 <p>title</p>
