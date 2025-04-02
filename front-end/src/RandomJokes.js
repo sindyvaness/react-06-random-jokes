@@ -18,10 +18,6 @@ const RandomJokes = () => {
 
     return (
         <div>
-            <div>
-                <button>Show Featured</button>
-            </div>
-
             <h2>Random Jokes</h2>
 
             <div className='random-jokes'>
