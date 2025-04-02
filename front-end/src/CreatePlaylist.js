@@ -4,23 +4,33 @@ import './style.css';
 
 const apiURL = 'http://localhost:3000/playlists';
 
-const CreatePlaylist = () => {
+const CreatePlaylist = (props) => {
     const [listName, setListName] = useState('');
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         console.log(listName);
-        axios.post(apiURL, { name: listName }) 
+        axios.post(apiURL, { name: listName, jokes: []}) 
         .then( result => {
-            console.log(result.data);               
+            getJokes();               
         })
         .catch( error => {
             console.log(error);
         });
     };
 
-
+    const getJokes = () => {
+        axios.get(apiURL) 
+        .then( result => {
+            console.log(result.data);  
+            props.setPlayLists([...result.data]);            
+        })
+        .catch( error => {
+            console.log(error);
+        });
+    };
 
     const handleInputChange = (setInput, event) => {
         setInput(event.target.value);

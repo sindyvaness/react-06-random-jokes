@@ -3,10 +3,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
-app.locals = [ {
-    name: '',
-    jokes: []
- }];
+app.locals = [];
 
 app.use(express.json());
 
