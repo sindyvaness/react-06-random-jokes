@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 const FeaturedJoke= (props) => {
-    useEffect(() => {
-        if(props.showFeatJoke) {
-            document.getElementById('featured-joke').style.display = 'block';
-        }
-        else {
-            document.getElementById('featured-joke').style.display = 'none';
-        }
-    }, [props.showFeatJoke]);
 
     return (
         <div id='featured-joke' className='featured-joke joke'>

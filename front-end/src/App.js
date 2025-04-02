@@ -21,10 +21,9 @@ const App = () => {
             <div>
                 <button onClick={ (event) => handleShowFeature(event) }>Show Featured</button>
             </div>
-            <FeaturedJoke
-                showFeatJoke = { showFeatJoke }
-            ></FeaturedJoke>
-
+            {
+                showFeatJoke ? <FeaturedJoke></FeaturedJoke> : ""
+            }
             <RandomJokes></RandomJokes>
 
             <CreatePlaylist
