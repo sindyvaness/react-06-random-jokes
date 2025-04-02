@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 
 const Joke = (props) => {
-    const [joke, setJoke] = useState({});
-    
-    useEffect(() => {
-
-    }, [props.joke]);
-
     return (
         <div className='joke'>
             <div>
