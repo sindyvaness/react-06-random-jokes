@@ -11,7 +11,6 @@ const CreatePlaylist = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(listName);
         axios.post(apiURL, { name: listName, jokes: []}) 
         .then( result => {
             getJokes();               
@@ -24,7 +23,6 @@ const CreatePlaylist = (props) => {
     const getJokes = () => {
         axios.get(apiURL) 
         .then( result => {
-            console.log(result.data);  
             props.setPlayLists([...result.data]);            
         })
         .catch( error => {

@@ -8,7 +8,11 @@ app.locals = [];
 app.use(express.json());
 
 app.post('/playlists', (req, res) => {
-    app.locals.push(req.body);
+    app.locals.push({
+        "id": (app.locals.length + 1) ,
+        "name": req.body.name,
+        "jokes": []
+    });
 
     res.status(200)
                 .send(req.body);

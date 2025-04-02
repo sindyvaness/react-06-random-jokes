@@ -17,7 +17,7 @@ const FeaturedJoke= () => {
             .catch( error => {
                 console.log(error);
             });            
-        }, 2000);  
+        }, 8000);  
        
         return () => clearInterval(interval); // this clear the interval
 

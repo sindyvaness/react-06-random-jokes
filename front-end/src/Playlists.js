@@ -6,7 +6,7 @@ const Playlists = (props) => {
     return (<div>
         <ul>
             { props.playLists.map( (playList, count = 0) => (
-                <li key={count++}><h3>{ playList.name }</h3></li>
+                <li key={ playList.id }><h3>{ playList.name }</h3></li>
             )) }
         </ul>
     </div>);
