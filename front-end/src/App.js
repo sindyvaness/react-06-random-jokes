@@ -22,9 +22,11 @@ const App = () => {
                 <button onClick={ (event) => handleShowFeature(event) }>Show Featured</button>
             </div>
             {
-                showFeatJoke ? <FeaturedJoke></FeaturedJoke> : ""
+                showFeatJoke ? <FeaturedJoke playLists = { playLists } ></FeaturedJoke> : ""
             }
-            <RandomJokes></RandomJokes>
+            <RandomJokes
+                playLists = { playLists }
+            ></RandomJokes>
 
             <CreatePlaylist
                 setPlayLists = { setPlayLists }                

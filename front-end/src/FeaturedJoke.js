@@ -4,7 +4,7 @@ import Joke from './Joke';
 
 const apiUrl = 'http://localhost:3005/jokes/programming/random'; //'https://official-joke-api.appspot.com/jokes/programming/random';
 
-const FeaturedJoke= () => {
+const FeaturedJoke= (props) => {
     const [joke, setJoke] = useState({});
 
     useEffect( () => {        
@@ -26,7 +26,10 @@ const FeaturedJoke= () => {
     return (
         <div id='featured-joke' className='featured-joke joke'>
             <h2>Featured Joke</h2>
-            <Joke joke = { joke }/>           
+            <Joke 
+                joke = { joke }
+                playLists = { props.playLists }
+            />           
         </div>
     );    
 };

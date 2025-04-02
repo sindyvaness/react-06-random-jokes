@@ -23,6 +23,11 @@ app.get('/playlists', (req, res) => {
                 .send(app.locals);
 });
 
+app.path('/playlists/:listName', (req, res) => {
+    res.status(200)
+                .send(app.locals);
+});
+
 
 app.listen(3000, function () {
     console.log("Server is running on port 3000");

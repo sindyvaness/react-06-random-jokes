@@ -13,14 +13,14 @@ const CreatePlaylist = (props) => {
 
         axios.post(apiURL, { name: listName, jokes: []}) 
         .then( result => {
-            getJokes();               
+            getPlaylists();               
         })
         .catch( error => {
             console.log(error);
         });
     };
 
-    const getJokes = () => {
+    const getPlaylists = () => {
         axios.get(apiURL) 
         .then( result => {
             props.setPlayLists([...result.data]);            

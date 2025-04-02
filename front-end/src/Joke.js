@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 
 const Joke = (props) => {
+    
+    const handleChangePlaylist = () => {
+
+    };
+
     return (
         <div className='joke'>
             <div>
@@ -10,10 +15,13 @@ const Joke = (props) => {
             </div>
             <form>
                 <span>Add to list</span>
-                <select>
-                    <option>-- choose a list --</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
+                <select onChange={handleChangePlaylist} defaultValue='default'> 
+                <option disabled value='default'> -- choose a playlist --</option> 
+                    {/* TODO: other <option> elements rendered here */
+                        props.playLists.map( (playlist) => (
+                            <option key={playlist.id} value={playlist.id}>{ playlist.name }</option> 
+                        ))
+                    } 
                 </select>
                 <input type='submit' value='add'></input>
             </form>

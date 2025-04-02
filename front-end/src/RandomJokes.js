@@ -5,7 +5,7 @@ import './style.css';
 
 const apiUrl = 'http://localhost:3005/jokes/';
 
-const RandomJokes = () => {
+const RandomJokes = (props) => {
     const [initRandomJokes, setInitRandomJokes] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,10 @@ const RandomJokes = () => {
                 <ul>
                     {initRandomJokes.slice(0, 6).map( (joke) => (
                         <li className='featured-joke' key={ joke.id }>
-                            <Joke joke = { joke }/>
+                            <Joke  
+                                joke = { joke }
+                                playLists = { props.playLists }
+                            />
                         </li>
                     ))}            
                 </ul>
