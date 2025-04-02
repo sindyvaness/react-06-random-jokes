@@ -12,6 +12,9 @@ const App = () => {
     return (
         <div className='app'>
             <h1>Joke App</h1>
+            <div>
+                <button>Show Featured</button>
+            </div>
             <FeaturedJoke></FeaturedJoke>
             <RandomJokes></RandomJokes>
             <CreatePlaylist
