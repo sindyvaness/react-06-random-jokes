@@ -10,8 +10,7 @@ const RandomJokes = () => {
 
     useEffect(() => {
             axios.get(apiUrl + 'programming/ten') 
-            .then(results => { 
-                console.log(results.data);
+            .then(results => {
                 setInitRandomJokes([...results.data]);
             }) 
             .catch(error => console.log(error));
