@@ -23,7 +23,7 @@ const RandomJokes = (props) => {
             <div className='random-jokes'>
                 <ul>
                     {initRandomJokes.slice(0, 6).map( (joke) => (
-                        <li className='featured-joke' key={ joke.id }>
+                        <li className='featured-joke' id={ joke.id } key={ joke.id }>
                             <Joke  
                                 joke = { joke }
                                 playLists = { props.playLists }

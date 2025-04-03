@@ -23,9 +23,27 @@ app.get('/playlists', (req, res) => {
                 .send(app.locals);
 });
 
-app.path('/playlists/:listName', (req, res) => {
-    res.status(200)
-                .send(app.locals);
+app.patch('/playlists/:listName', (req, res) => {
+    const { listName } = req.params;
+    const { newJoke } = req.body;
+
+    // res.status(200)
+    //         .json(newJoke);
+
+    const playlist = app.locals.find(list => list.name === listName);
+
+    if (playlist) {
+        if (newJoke) {
+            playlist.jokes.push(newJoke);
+
+            res.status(200)
+            .json({ message: "Playlist updated" });
+        }
+    }
+    else {
+        res.status(404)
+        .json({ message: "Playlist no encontrada" });
+    }
 });
 
 
