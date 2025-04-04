@@ -37,12 +37,12 @@ app.patch('/playlists/:listName', (req, res) => {
             playlist.jokes.push(newJoke);
 
             res.status(200)
-            .json({ message: "Playlist updated" });
+            .json({ isUpdated: true, listId: playlist.id, message: "Playlist updated" });
         }
     }
     else {
         res.status(404)
-        .json({ message: "Playlist no encontrada" });
+        .json({ isUpdated: false, listId: 0, message: "Playlist no encontrada" });
     }
 });
 

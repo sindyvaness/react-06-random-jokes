@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import './style.css';
+import { UserContext } from './UserContext';
 
 const apiURL = 'http://localhost:3000/playlists';
 
 const CreatePlaylist = (props) => {
+    const { getPlaylists } = useContext(UserContext);
     const [listName, setListName] = useState('');
-    
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -14,16 +15,6 @@ const CreatePlaylist = (props) => {
         axios.post(apiURL, { name: listName, jokes: []}) 
         .then( result => {
             getPlaylists();               
-        })
-        .catch( error => {
-            console.log(error);
-        });
-    };
-
-    const getPlaylists = () => {
-        axios.get(apiURL) 
-        .then( result => {
-            props.setPlayLists([...result.data]);            
         })
         .catch( error => {
             console.log(error);

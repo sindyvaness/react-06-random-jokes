@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import './style.css';
 import axios from 'axios';
+import { UserContext } from './UserContext';
 
-const apiUrl = 'http://localhost:3000/playlists/'
+const apiUrl = 'http://localhost:3000/playlists/';
 
 const Joke = (props) => {
-    const [selectedList, setSelectedList] = useState({});;
+    const { getPlaylists } = useContext(UserContext);
+    
+    const [selectedList, setSelectedList] = useState({});
 
     const handleChangePlaylist = (event) => {
         setSelectedList(props.playLists.filter( list => list.id == event.target.value)[0]);
-        // console.log(props.joke.id);
-
-        // console.log(props.playLists.filter( list => list.id == event.target.value)[0]);
     };
 
-    const updateList = () => {
+    const updateList = (event) => {
+        event.preventDefault();
+
         axios.patch(apiUrl + selectedList.name,  { newJoke: props.joke })
         .then( result => {
-            console.log(result.date);
+            console.log(result.data);
+            // TODO: UPDATE THE LIST OF PLAYLISTS
+            getPlaylists();
         })
         .catch( error => {
             console.log(error);
@@ -31,7 +35,7 @@ const Joke = (props) => {
                 <h3>{props.joke.punchline}</h3>
             </div>
 
-            <form>
+            <form onSubmit={ (event) => updateList(event) }>
                 <span>Add to list</span>
                 <select onChange={ (event) => handleChangePlaylist(event) } defaultValue='default'> 
                 <option disabled value='default'> -- choose a playlist --</option> 
