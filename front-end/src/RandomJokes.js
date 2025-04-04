@@ -3,7 +3,7 @@ import axios from 'axios';
 import Joke from './Joke';
 import './style.css';
 
-const apiUrl = 'http://localhost:3005/jokes/';
+const apiUrl = 'https://official-joke-api.appspot.com/jokes/';
 
 const RandomJokes = (props) => {
     const [initRandomJokes, setInitRandomJokes] = useState([]);

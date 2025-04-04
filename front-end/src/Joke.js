@@ -19,8 +19,6 @@ const Joke = (props) => {
 
         axios.patch(apiUrl + selectedList.name,  { newJoke: props.joke })
         .then( result => {
-            console.log(result.data);
-            // TODO: UPDATE THE LIST OF PLAYLISTS
             getPlaylists();
         })
         .catch( error => {

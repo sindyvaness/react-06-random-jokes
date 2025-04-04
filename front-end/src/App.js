@@ -14,7 +14,6 @@ const App = () => {
     const [showFeatJoke, setShowFeatJoke] = useState(false);
 
     const getPlaylists = () => {
-        console.log('getPlaylists');
             axios.get(apiURL) 
             .then( result => {
                 setPlayLists([...result.data]);            

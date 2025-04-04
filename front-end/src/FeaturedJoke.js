@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Joke from './Joke';
 
-const apiUrl = 'http://localhost:3005/jokes/programming/random'; //'https://official-joke-api.appspot.com/jokes/programming/random';
+const apiUrl = 'https://official-joke-api.appspot.com/jokes/programming/random'; //'https://official-joke-api.appspot.com/jokes/programming/random';
 
 const FeaturedJoke= (props) => {
     const [joke, setJoke] = useState({});
