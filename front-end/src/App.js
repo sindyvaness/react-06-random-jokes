@@ -28,6 +28,13 @@ const App = () => {
         showFeatJoke ? setShowFeatJoke(false) : setShowFeatJoke(true);
     };
 
+    const renderJoke = (joke) => 
+        <Joke 
+            joke={joke} 
+            playlists={playlists} 
+            handleAddToPlaylist={handleAddToPlaylist}
+        /> 
+
     return (
         <UserContext.Provider className='app' value={ {getPlaylists} }>
             <h1>Joke App</h1>
