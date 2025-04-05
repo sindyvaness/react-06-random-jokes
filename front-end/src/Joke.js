@@ -37,7 +37,7 @@ const Joke = (props) => {
                 <span>Add to list</span>
                 <select onChange={ (event) => handleChangePlaylist(event) } defaultValue='default'> 
                 <option disabled value='default'> -- choose a playlist --</option> 
-                    {/* TODO: other <option> elements rendered here */
+                    {
                         props.playLists.map( (playlist) => (
                             <option key={playlist.id} value={playlist.id}>{ playlist.name }</option> 
                         ))
